@@ -1,6 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://crxc1rwo5y1k"]
+[gd_scene load_steps=13 format=3 uid="uid://crxc1rwo5y1k"]
 
 [ext_resource type="Texture2D" uid="uid://b08lbylfqwh8t" path="res://assets/animations/Player_Idle.png" id="1_1hmtu"]
+[ext_resource type="Script" uid="uid://bexyj6jprd8ow" path="res://scripts/entities/player/player.gd" id="1_58kc7"]
 [ext_resource type="Texture2D" uid="uid://gsdtvsuttb2e" path="res://assets/animations/Shadow.png" id="2_635qg"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yel1f"]
@@ -65,6 +66,10 @@ animations = [{
 
 [node name="Player" type="CharacterBody2D"]
 y_sort_enabled = true
+script = ExtResource("1_58kc7")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(3, 3)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_yel1f")
