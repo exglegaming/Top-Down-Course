@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=4 uid="uid://dmwy1p4g3ug5s"]
+
+[ext_resource type="Texture2D" uid="uid://c2brfmdree7lq" path="res://assets/level/Background_Grass.png" id="1_72ix8"]
+[ext_resource type="PackedScene" uid="uid://crxc1rwo5y1k" path="res://scenes/entities/player/player.tscn" id="2_2vj2h"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2vj2h"]
+texture = ExtResource("1_72ix8")
+texture_region_size = Vector2i(256, 256)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_y0acb"]
+tile_size = Vector2i(256, 256)
+sources/0 = SubResource("TileSetAtlasSource_2vj2h")
+
+[node name="Main" type="Node2D"]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAD/////AAAAAAAAAAD//wAAAAAAAAAAAAD//wEAAAAAAAAAAAD//wIAAAAAAAAAAAD//wMAAAAAAAAAAAAAAP//AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAMAAAAAAAAAAAABAP//AAAAAAAAAAABAAAAAAAAAAAAAAABAAEAAAAAAAAAAAABAAIAAAAAAAAAAAABAAMAAAAAAAAAAAACAP//AAAAAAAAAAACAAAAAAAAAAAAAAACAAEAAAAAAAAAAAACAAIAAAAAAAAAAAACAAMAAAAAAAAAAAADAP//AAAAAAAAAAADAAAAAAAAAAAAAAADAAEAAAAAAAAAAAADAAIAAAAAAAAAAAADAAMAAAAAAAAAAAAEAP//AAAAAAAAAAAEAAAAAAAAAAAAAAAEAAEAAAAAAAAAAAAEAAIAAAAAAAAAAAAEAAMAAAAAAAAAAAAFAP//AAAAAAAAAAAFAAAAAAAAAAAAAAAFAAEAAAAAAAAAAAAFAAIAAAAAAAAAAAAFAAMAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_y0acb")
+
+[node name="Player" parent="." instance=ExtResource("2_2vj2h")]
+position = Vector2(574, 319)

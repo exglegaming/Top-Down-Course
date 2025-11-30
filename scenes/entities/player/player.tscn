@@ -1,0 +1,82 @@
+[gd_scene load_steps=12 format=3 uid="uid://crxc1rwo5y1k"]
+
+[ext_resource type="Texture2D" uid="uid://b08lbylfqwh8t" path="res://assets/animations/Player_Idle.png" id="1_1hmtu"]
+[ext_resource type="Texture2D" uid="uid://gsdtvsuttb2e" path="res://assets/animations/Shadow.png" id="2_635qg"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yel1f"]
+radius = 4.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_635qg"]
+atlas = ExtResource("1_1hmtu")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_58kc7"]
+atlas = ExtResource("1_1hmtu")
+region = Rect2(96, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nh4ur"]
+atlas = ExtResource("1_1hmtu")
+region = Rect2(192, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bjvvg"]
+atlas = ExtResource("1_1hmtu")
+region = Rect2(288, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8akj5"]
+atlas = ExtResource("1_1hmtu")
+region = Rect2(384, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bj7e2"]
+atlas = ExtResource("1_1hmtu")
+region = Rect2(480, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1murt"]
+atlas = ExtResource("1_1hmtu")
+region = Rect2(576, 0, 96, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yel1f"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_635qg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_58kc7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nh4ur")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bjvvg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8akj5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bj7e2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1murt")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[node name="Player" type="CharacterBody2D"]
+y_sort_enabled = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_yel1f")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_yel1f")
+autoplay = "default"
+frame = 5
+frame_progress = 0.5162691
+offset = Vector2(0, -20)
+
+[node name="ShadowSprite" type="Sprite2D" parent="."]
+position = Vector2(0, -1)
+texture = ExtResource("2_635qg")
+offset = Vector2(0, 1)
