@@ -486,7 +486,8 @@ sprite_frames = SubResource("SpriteFrames_yel1f")
 animation = &"idle_down"
 offset = Vector2(0, -20)
 
-[node name="ShadowSprite" type="Sprite2D" parent="."]
+[node name="ShadowSprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.5882353)
 position = Vector2(0, -1)
 texture = ExtResource("2_635qg")
 offset = Vector2(0, 1)
