@@ -4,16 +4,21 @@
 [ext_resource type="Script" uid="uid://ckxqdevoa1ow1" path="res://scripts/environment/grass.gd" id="1_wlmil"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4e7ub"]
+size = Vector2(40, 10)
 
 [node name="Grass" type="Area2D"]
+collision_layer = 8
+collision_mask = 2
 script = ExtResource("1_wlmil")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -5)
 shape = SubResource("RectangleShape2D_4e7ub")
 
 [node name="BackSprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -20)
 texture = ExtResource("1_t53ui")
-offset = Vector2(0, -10)
+offset = Vector2(0, 4)
 region_enabled = true
 region_rect = Rect2(0, 96, 48, 32)
 

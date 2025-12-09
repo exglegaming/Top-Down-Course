@@ -4,12 +4,18 @@ extends Area2D
 
 var skew_tween: Tween
 var skew_tween_back: Tween
+var scale_tween: Tween
+var start_scale: Vector2 = Vector2(1.0, 1.0)
+var end_scale: Vector2 = Vector2(1.0, 0.5)
 
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var back_sprite_2d: Sprite2D = $BackSprite2D
 
 
 func _ready() -> void:
+    self.body_entered.connect(_on_body_entered)
+    self.body_exited.connect(_on_body_exited)
+
     var start_skew: float = deg_to_rad(randf_range(-10, 10))
     var end_skew: float = -start_skew
 
@@ -25,3 +31,19 @@ func _ready() -> void:
     skew_tween_back.tween_property(back_sprite_2d, "skew", end_skew_back, 1.5).from(start_skew_back)
     skew_tween_back.tween_property(back_sprite_2d, "skew", start_skew_back, 1.5).from(end_skew_back)
     skew_tween_back.set_ease(Tween.EASE_IN_OUT)
+
+
+func _on_body_entered(_body: Node2D) -> void:
+    create_new_scale_tween(end_scale, 0.1)
+
+
+func _on_body_exited(_body: Node2D) -> void:
+    create_new_scale_tween(start_scale, 0.5)
+
+
+func create_new_scale_tween(target_value: Vector2, duration: float) -> void:
+    if scale_tween:
+        scale_tween.kill()
+
+    scale_tween = create_tween()
+    scale_tween.tween_property(sprite_2d, "scale", target_value, duration).set_ease(Tween.EASE_OUT)
