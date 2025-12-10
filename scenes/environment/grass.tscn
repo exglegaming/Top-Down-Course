@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://ut3dwluae8vw"]
+[gd_scene load_steps=5 format=3 uid="uid://ut3dwluae8vw"]
 
 [ext_resource type="Texture2D" uid="uid://cw2hn7b283ap4" path="res://assets/level/TreeAndGrass.png" id="1_t53ui"]
 [ext_resource type="Script" uid="uid://ckxqdevoa1ow1" path="res://scripts/environment/grass.gd" id="1_wlmil"]
+[ext_resource type="Script" uid="uid://beeupavu4p5ry" path="res://scripts/environment/random_region.gd" id="3_ad0d1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4e7ub"]
 size = Vector2(40, 10)
@@ -28,3 +29,5 @@ texture = ExtResource("1_t53ui")
 offset = Vector2(0, -10)
 region_enabled = true
 region_rect = Rect2(0, 0, 48, 32)
+script = ExtResource("3_ad0d1")
+random_regions = Array[Rect2]([Rect2(0, 0, 48, 32), Rect2(0, 32, 48, 32), Rect2(0, 64, 48, 32), Rect2(0, 0, 48, 32), Rect2(0, 0, 48, 32)])
