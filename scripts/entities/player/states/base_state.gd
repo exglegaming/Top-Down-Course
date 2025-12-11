@@ -7,10 +7,12 @@ var parent_state_machine: StateMachine
 
 @warning_ignore("unused_parameter")
 func update_physics(delta: float) -> void:
+    # print("%s is updating physics" % name)
     pass
 
 
 func update() -> void:
+    # print("%s is updating" % name)
     pass
 
 
